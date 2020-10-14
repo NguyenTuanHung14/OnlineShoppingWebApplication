@@ -4,6 +4,9 @@
  - Thành viên 1: Phan Thị Ngọc Tuyền
  - Thành viên 2: Nguyễn Trần Thanh Trúc
  - Thành viên 3: Nguyễn Tuấn Hùng
+      - Email: tuanhungit14@gmail.com
+      - Số điện thoại: 0355243283
+      - Mạng xã hội: https://www.facebook.com/tuanhung.nguyen.1297/
  - Thành viên 4: Nguyễn Thanh Nhân
  - Thành viên 5: Đỗ Thị Thanh Ngân
 ## Công nghệ sử dụng:
