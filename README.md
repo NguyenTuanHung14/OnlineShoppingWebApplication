@@ -1,7 +1,7 @@
 # OnlineShoppingWebApplication
 ## Đề tài: Xây dựng website quần áo.
 ## Tên nhóm: NHAT^
- - Thành viên 1: **Phan Thị Ngọc Tuyền**
+ - Thành viên 1: **Phan Thị Ngọc Tuyền (LEADER)**
       - Email: phantuyen2502@gmail.com
       - Số điện thoại: 0326364802
       - Mạng xã hội: https://www.facebook.com/ntuyen1999/
