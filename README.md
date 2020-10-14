@@ -2,6 +2,9 @@
 ## Đề tài: Xây dựng website quần áo.
 ## Tên nhóm: NHAT^
  - Thành viên 1: Phan Thị Ngọc Tuyền
+      - Email: phantuyen2502@gmail.com
+      - Số điện thoại: 0326364802
+      - Mạng xã hội: https://www.facebook.com/ntuyen1999/
  - Thành viên 2: Nguyễn Trần Thanh Trúc
       - Email: thanhtrucnguyentran0810@gmail.com
       - Số điện thoại: 0764079970
