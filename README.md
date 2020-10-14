@@ -1,1 +1,18 @@
 # OnlineShoppingWebApplication
+## Đề tài: Xây dựng website quần áo.
+## Tên nhóm: NHAT^
+ - Thành viên 1: Phan Thị Ngọc Tuyền
+ - Thành viên 2: Nguyễn Trần Thanh Trúc
+ - Thành viên 3: Nguyễn Tuấn Hùng
+ - Thành viên 4: Nguyễn Thanh Nhân
+ - Thành viên 5: Đỗ Thị Thanh Ngân
+## Công nghệ sử dụng:
+- Backend: Java Spring Boot, MSSQL
+- Frontend: React
+## Quản lý dự án:
+ - Trello
+## IDE và môi trường thực hiện:
+  - IDE: Visual studio code, netbeans
+  - NodeJS v10.16.3
+  - JDK1.8
+ 
