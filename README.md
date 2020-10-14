@@ -3,7 +3,7 @@
 ## Tên nhóm: NHAT^
  - Thành viên 1: Phan Thị Ngọc Tuyền
  - Thành viên 2: Nguyễn Trần Thanh Trúc
-       - Email: thanhtrucnguyentran0810@gmail.com
+      - Email: thanhtrucnguyentran0810@gmail.com
       - Số điện thoại: 0764079970
       - Mạng xã hội: https://www.facebook.com/ntttruc99
  - Thành viên 3: Nguyễn Tuấn Hùng
