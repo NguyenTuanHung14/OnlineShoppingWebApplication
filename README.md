@@ -15,7 +15,7 @@
       - Mạng xã hội: https://www.facebook.com/tuanhung.nguyen.1297/
  - Thành viên 4: **Nguyễn Thanh Nhân**
       - Email: thanhnhan77620@gmail.com
-      - Số điện thoại: 0363677492
+      - Số điện thoại: 0363677492.
       - Mạng xã hội: https://www.facebook.com/profile.php?id=100018560048690
  - Thành viên 5: **Đỗ Thị Thanh Ngân**
       - Email: dothithanhngan2911@gmail.com
