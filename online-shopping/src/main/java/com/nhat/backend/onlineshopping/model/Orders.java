@@ -34,8 +34,7 @@ public class Orders {
 	@Column (name = "dateCreated")
 	private Date dateCreated;
 	
-<<<<<<< HEAD
-=======
+
 	@ManyToOne
 	@JoinColumn(name = "userAccountId")
 	private UserAccount userAccount;
@@ -59,9 +58,7 @@ public class Orders {
 	@ManyToOne
 	@JoinColumn(name = "discountCodeId")
 	private DiscountCode discountCode;
-	
-	
->>>>>>> Ngan
+
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
 				name = "OrderDetails",
@@ -101,10 +98,5 @@ public class Orders {
 	public void setDateCreated(Date dateCreated) {
 		this.dateCreated = dateCreated;
 	}
-<<<<<<< HEAD
-=======
 
-
->>>>>>> Ngan
- 	
 }

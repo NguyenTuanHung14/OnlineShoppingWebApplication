@@ -18,7 +18,3 @@ public class MyResourceNotFoundException extends RuntimeException {
         super(cause);
     }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> Ngan
