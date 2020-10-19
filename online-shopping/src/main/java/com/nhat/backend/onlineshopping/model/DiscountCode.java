@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name ="discountCode")
 public class DiscountCode {
@@ -26,8 +28,10 @@ public class DiscountCode {
 	private String code;
 	
 	@Column(name = "startDate")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date startDate;
 	
+	@JsonFormat(pattern="yyyy-MM-dd")
 	@Column(name = "endDate")
 	private Date endDate;
 	
@@ -35,7 +39,7 @@ public class DiscountCode {
 	private Double value;
 	
 	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "discountCode")
+	@JoinColumn(name = "discountCodeId")
 	private List<Orders> listOrders;
 
 	public DiscountCode() {
