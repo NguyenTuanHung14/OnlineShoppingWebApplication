@@ -9,15 +9,18 @@ GO
 DROP TABLE IF EXISTS OrderDetails
 DROP TABLE IF EXISTS Orders
 DROP TABLE IF EXISTS DiscountCode
+DROP TABLE IF EXISTS Images
 DROP TABLE IF EXISTS Product
 DROP TABLE IF EXISTS Category
 DROP TABLE IF EXISTS UserAccount
 GO
 
+
 CREATE TABLE UserAccount (
 	id INT NOT NULL IDENTITY(1,1),
 	name NVARCHAR(20),
-	email NVARCHAR(20),
+	email NVARCHAR(20),	
+	phone VARCHAR(20),
 	password VARCHAR(20),
 	PRIMARY KEY (id),
 )
@@ -32,7 +35,7 @@ CREATE TABLE Product (
 	id INT NOT NULL IDENTITY(1,1),
 	categoryId INT NOT NULL, 
 	name VARCHAR(20),
-	price FLOAT,
+	price MONEY,
 	size VARCHAR(10),
 	description NVARCHAR(1000),
 	images VARCHAR(20)
@@ -40,25 +43,34 @@ CREATE TABLE Product (
 	FOREIGN KEY (categoryId) REFERENCES Category(id)
 )
 GO
+
+CREATE TABLE Image (
+	id INT NOT NULL IDENTITY(1,1),
+	path VARCHAR(20),
+	productId INT,
+	PRIMARY KEY (id),
+	FOREIGN KEY (productId) REFERENCES Product(id)
+)
+GO
+
 CREATE TABLE DiscountCode (
 	id INT NOT NULL IDENTITY(1,1),
 	code NVARCHAR(20),
 	startDate DATE,
 	endDate DATE,
-	value FLOAT,
+	value INT,
 	PRIMARY KEY (id),
 )	
 GO
 CREATE TABLE Orders (
 	id INT NOT NULL IDENTITY(1,1),
 	dicountCodeId INT,
-	name NVARCHAR(20),
-	email NVARCHAR(20),
+	userId INT,
 	address NVARCHAR(20),
-	phone VARCHAR(20),
 	dateCreated DATE,
 	PRIMARY KEY (id),
-	FOREIGN KEY (dicountCodeId) REFERENCES DiscountCode(id)
+	FOREIGN KEY (dicountCodeId) REFERENCES DiscountCode(id),
+	FOREIGN KEY (userId) REFERENCES UserAccount(id)
 )
 GO
 CREATE TABLE OrderDetails (
