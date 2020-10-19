@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name =  "UserAccount")
+@Table(name = "userAccount")
 public class UserAccount {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,9 +35,8 @@ public class UserAccount {
 	@Column(name =  "password")
 	private String password;
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "userId")
-	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY,
+			mappedBy = "userAccount")
 	private List<Orders> listOrders;
 	
 	public UserAccount() {

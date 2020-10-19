@@ -38,8 +38,8 @@ public class DiscountCode {
 	@Column(name = "value")
 	private Double value;
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "discountCodeId")
+	@OneToMany(fetch = FetchType.LAZY,
+			mappedBy = "discountCode")
 	private List<Orders> listOrders;
 
 	public DiscountCode() {

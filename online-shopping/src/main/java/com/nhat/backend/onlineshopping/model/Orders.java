@@ -34,6 +34,34 @@ public class Orders {
 	@Column (name = "dateCreated")
 	private Date dateCreated;
 	
+<<<<<<< HEAD
+=======
+	@ManyToOne
+	@JoinColumn(name = "userAccountId")
+	private UserAccount userAccount;
+	
+	public UserAccount getUserAccount() {
+		return userAccount;
+	}
+
+	public void setUserAccount(UserAccount userAccount) {
+		this.userAccount = userAccount;
+	}
+
+	public DiscountCode getDiscountCode() {
+		return discountCode;
+	}
+
+	public void setDiscountCode(DiscountCode discountCode) {
+		this.discountCode = discountCode;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "discountCodeId")
+	private DiscountCode discountCode;
+	
+	
+>>>>>>> Ngan
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
 				name = "OrderDetails",
@@ -50,6 +78,14 @@ public class Orders {
 		return Id;
 	}
 	
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
 	public String getAddress() {
 		return address;
 	}
@@ -65,5 +101,10 @@ public class Orders {
 	public void setDateCreated(Date dateCreated) {
 		this.dateCreated = dateCreated;
 	}
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> Ngan
  	
 }
