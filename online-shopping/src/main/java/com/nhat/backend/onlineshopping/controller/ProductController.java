@@ -2,6 +2,7 @@ package com.nhat.backend.onlineshopping.controller;
 
 import java.util.List;
 
+import org.apache.catalina.startup.ClassLoaderFactory.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -36,6 +37,7 @@ public class ProductController {
 		return new ResponseEntity<List<Product>>(products, headers,HttpStatus.OK);
 	}
 	
+<<<<<<< HEAD
 	//create Products
 	@PostMapping("/products")
 	public Product createProducts(@RequestBody Product product) {
@@ -43,4 +45,10 @@ public class ProductController {
 	}
 	
 	
+=======
+	@PostMapping(path = "/products")
+	public Product createProduct(@RequestBody Product product){
+		return productsRepository.save(product);
+	}
+>>>>>>> Ngan
 }
