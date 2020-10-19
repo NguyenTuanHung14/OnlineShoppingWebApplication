@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nhat.backend.onlineshopping.model.Product;
 import com.nhat.backend.onlineshopping.repository.ProductsRepository;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/api/v1/")
 public class ProductController {
-	
+
 	@Autowired
 	private ProductsRepository productsRepository;
 	
@@ -27,7 +27,6 @@ public class ProductController {
 	public ResponseEntity<List<Product>> getProducts(){
 		List<Product> products = productsRepository.findAll();
 		HttpHeaders headers = new HttpHeaders();
-		headers.add("Access-Control-Allow-Origin","*" );
 		headers.add("Access-Control-Allow-Headers","Origin, X-Request-With, Content-Type,Accept" );
 		headers.add("Access-Control-Expose-Headers","X-total-Count,Content-Range" );
 		headers.add("Content-Range",String.format("%d", products.size()));
