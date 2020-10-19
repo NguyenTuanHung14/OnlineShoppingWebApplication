@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Category")
+@Table(name = "category")
 public class Category {
 	
 	@Id
@@ -24,8 +24,8 @@ public class Category {
 	@Column(name = "name")
 	private String name;
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name ="categoryId")
+	@OneToMany(fetch = FetchType.LAZY, 
+			mappedBy ="category")
 	private List<Product> listProducts;
 
 	public Category() {

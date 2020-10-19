@@ -31,8 +31,29 @@ public class Orders {
 	private Date dateCreated;
 	
 	@ManyToOne
+	@JoinColumn(name = "userAccountId")
+	private UserAccount userAccount;
+	
+	public UserAccount getUserAccount() {
+		return userAccount;
+	}
+
+	public void setUserAccount(UserAccount userAccount) {
+		this.userAccount = userAccount;
+	}
+
+	public DiscountCode getDiscountCode() {
+		return discountCode;
+	}
+
+	public void setDiscountCode(DiscountCode discountCode) {
+		this.discountCode = discountCode;
+	}
+
+	@ManyToOne
 	@JoinColumn(name = "discountCodeId")
-	private DiscountCode discountCodeId;
+	private DiscountCode discountCode;
+	
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
@@ -49,6 +70,14 @@ public class Orders {
 		return Id;
 	}
 	
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
+
 	public String getAddress() {
 		return address;
 	}
@@ -65,13 +94,6 @@ public class Orders {
 		this.dateCreated = dateCreated;
 	}
 
-	public DiscountCode getDiscountCodeId() {
-		return discountCodeId;
-	}
 
-	public void setDiscountCodeId(DiscountCode discountCodeId) {
-		this.discountCodeId = discountCodeId;
-	}
-	
  	
 }

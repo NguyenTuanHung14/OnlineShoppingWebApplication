@@ -11,10 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Product")
+@Table(name = "product")
 public class Product {
 	
 	@Id
@@ -34,6 +35,10 @@ public class Product {
 	@Column
 	private String description;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name  = "categoryId")
+	private Category category;
+	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
 				name = "OrderDetails",
@@ -42,6 +47,22 @@ public class Product {
 	private List<Orders>orders;
 
 	public Product() {
+	}
+
+	public List<Orders> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Orders> orders) {
+		this.orders = orders;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public Long getId() {
