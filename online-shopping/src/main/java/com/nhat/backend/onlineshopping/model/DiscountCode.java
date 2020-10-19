@@ -35,7 +35,7 @@ public class DiscountCode {
 	private Double value;
 	
 	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "discountCode")
+	@JoinColumn(name = "discountCodeId")
 	private List<Orders> listOrders;
 
 	public DiscountCode() {

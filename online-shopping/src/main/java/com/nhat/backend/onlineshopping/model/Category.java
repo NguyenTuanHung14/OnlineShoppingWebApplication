@@ -25,7 +25,7 @@ public class Category {
 	private String name;
 	
 	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name ="Category")
+	@JoinColumn(name ="categoryId")
 	private List<Product> listProducts;
 
 	public Category() {
