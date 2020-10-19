@@ -37,18 +37,9 @@ public class ProductController {
 		return new ResponseEntity<List<Product>>(products, headers,HttpStatus.OK);
 	}
 	
-<<<<<<< HEAD
-	//create Products
-	@PostMapping("/products")
-	public Product createProducts(@RequestBody Product product) {
-		return productsRepository.save(product);
-	}
 	
-	
-=======
 	@PostMapping(path = "/products")
 	public Product createProduct(@RequestBody Product product){
 		return productsRepository.save(product);
 	}
->>>>>>> Ngan
 }
