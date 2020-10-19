@@ -6,19 +6,19 @@ import Register from './components/auth/Register';
 import Landing from './components/landingPage/Landing';
 import Navbar from './components/layout/Navbar';
 import ProductList from './components/products';
+import Footer from './components/layout/Footer';
 import './App.css';
 
 const App = () => (
   <Router>
     <Fragment>
       <Navbar />
-      <section className='container'>
-        <switch>
-          <Route exact path='/' component={Landing} />
-          <Route exact path='/dangky' component={Register} />
-          <Route exact path='/dangnhap' component={Login} />
-        </switch>
-      </section>
+      <Switch>
+        <Route exact path='/' component={Landing} />
+        <Route exact path='/dangky' component={Register} />
+        <Route exact path='/dangnhap' component={Login} />
+      </Switch>
+      <Footer />
     </Fragment>
   </Router>
 );

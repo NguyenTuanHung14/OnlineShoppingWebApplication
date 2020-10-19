@@ -10,6 +10,7 @@ body {
   line-height: 1.6;
   background-color: #fff;
   color: #333;
+  overflow-x: hidden;
 }
 
 a {
@@ -53,4 +54,11 @@ ul {
 
 .navbar .welcome span {
   margin-right: 0.6rem;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #282c34;
 }

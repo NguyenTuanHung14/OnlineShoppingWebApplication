@@ -5,7 +5,7 @@ import ProductList from '../products';
 import Carousel from '../casousel';
 const Landing = () => {
   return (
-    <Container>
+    <Container className='py-4'>
       <Row>
         <Col>
           <Image
