@@ -16,6 +16,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "Orders")
 public class Orders {
@@ -27,18 +30,16 @@ public class Orders {
 	@Column(name = "address")
 	private String address;
 	
+	@JsonFormat(pattern="yyyy-MM-dd")
 	@Column (name = "dateCreated")
 	private Date dateCreated;
-	
-	@ManyToOne
-	@JoinColumn(name = "discountCodeId")
-	private DiscountCode discountCodeId;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
 				name = "OrderDetails",
 				joinColumns = @JoinColumn(name = "orderId"),
 				inverseJoinColumns = @JoinColumn(name = "productId"))
+	@JsonIgnore
 	private List<Product> products;
 	
 	public Orders() {
@@ -64,14 +65,5 @@ public class Orders {
 	public void setDateCreated(Date dateCreated) {
 		this.dateCreated = dateCreated;
 	}
-
-	public DiscountCode getDiscountCodeId() {
-		return discountCodeId;
-	}
-
-	public void setDiscountCodeId(DiscountCode discountCodeId) {
-		this.discountCodeId = discountCodeId;
-	}
-	
  	
 }
