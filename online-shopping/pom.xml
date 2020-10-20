@@ -33,12 +33,17 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+<<<<<<< HEAD
 
 		<dependency>
 		    <groupId>org.springframework.social</groupId>
 		    <artifactId>spring-social-facebook</artifactId>
 		    <version>2.0.3.RELEASE</version>
 		</dependency>
+=======
+		
+	
+>>>>>>> Ngan
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
