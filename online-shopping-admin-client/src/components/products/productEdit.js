@@ -8,12 +8,21 @@ import {
   FormTab,
   ImageInput,
   ImageField,
+  Edit,
 } from 'admin-on-rest';
 
 import RichTextInput from 'aor-rich-text-input';
-export const ProductCreate = ({ ...props }) => {
+
+// const EditActions = ({ basePath, data, hasShow }) => (
+//   <TopToolbar>
+//     <CloneButton className='button-clone' basePath={basePath} record={data} />
+//     {hasShow && <ShowButton basePath={basePath} record={data} />}
+//   </TopToolbar>
+// );
+
+export const ProductEdit = ({ ...props }) => {
   return (
-    <Create {...props}>
+    <Edit {...props}>
       <TabbedForm warnWhenUnsavedChanges>
         <FormTab label='Thông tin cơ bản'>
           <TextInput
@@ -60,6 +69,6 @@ export const ProductCreate = ({ ...props }) => {
           />
         </FormTab>
       </TabbedForm>
-    </Create>
+    </Edit>
   );
 };
