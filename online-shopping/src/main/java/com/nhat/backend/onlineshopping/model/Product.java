@@ -16,14 +16,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-<<<<<<< HEAD
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
-=======
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
->>>>>>> Ngan
+
 
 @Entity
 @Table(name = "product")
@@ -57,11 +57,7 @@ public class Product implements Serializable {
 				joinColumns = @JoinColumn(name = "productId"),
 				inverseJoinColumns = @JoinColumn(name = "orderId"))
 	@JsonIgnore
-<<<<<<< HEAD
-	private List<Orders>orders;
-=======
 	private List<Orders>orders = new ArrayList<>();
->>>>>>> Ngan
 
 	public Product() {
 	}

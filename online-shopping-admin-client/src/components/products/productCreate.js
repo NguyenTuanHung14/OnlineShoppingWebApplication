@@ -9,9 +9,10 @@ import {
   ImageInput,
   ImageField,
 } from 'admin-on-rest';
-import { Container, Row, Col } from 'react-bootstrap';
+
 import RichTextInput from 'aor-rich-text-input';
-export const ProductCreate = (props) => {
+export const ProductCreate = ({ ...props }) => {
+  console.log(props);
   return (
     <Create {...props}>
       <TabbedForm warnWhenUnsavedChanges>
@@ -30,19 +31,26 @@ export const ProductCreate = (props) => {
             multiline={true}
             validate={required}
           />
-          <SelectArrayInput
+          <TextInput
+            label='Size'
+            autoFocus
+            source='size'
+            fullWidth={true}
+            multiline={true}
+            validate={required}
+          />
+          {/* <SelectArrayInput
             label='Size'
             source='size'
             choices={[
-              { id: '1', name: 'M' },
-              { id: '2', name: 'L' },
-              { id: '3', name: 'XL' },
-              { id: '4', name: 'XL' },
+              { id: 'M', name: 'M' },
+              { id: 'L', name: 'L' },
+              { id: 'XL', name: 'XL' },
             ]}
-          />
+          /> */}
 
-          <ImageInput source='images' label='Hình ảnh' accept='image/*'>
-            <ImageField source='src' />
+          <ImageInput label='Hình ảnh' accept='image/*'>
+            <ImageField />
           </ImageInput>
         </FormTab>
         <FormTab label='Mô tả'>
