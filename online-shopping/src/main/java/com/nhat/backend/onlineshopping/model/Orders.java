@@ -16,6 +16,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "Orders")
 public class Orders {
@@ -30,28 +32,14 @@ public class Orders {
 	@Column (name = "dateCreated")
 	private Date dateCreated;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "userAccountId")
+	@JsonIgnore
 	private UserAccount userAccount;
-	
-	public UserAccount getUserAccount() {
-		return userAccount;
-	}
-
-	public void setUserAccount(UserAccount userAccount) {
-		this.userAccount = userAccount;
-	}
-
-	public DiscountCode getDiscountCode() {
-		return discountCode;
-	}
-
-	public void setDiscountCode(DiscountCode discountCode) {
-		this.discountCode = discountCode;
-	}
 
 	@ManyToOne
 	@JoinColumn(name = "discountCodeId")
+	@JsonIgnore
 	private DiscountCode discountCode;
 	
 	
@@ -94,6 +82,21 @@ public class Orders {
 		this.dateCreated = dateCreated;
 	}
 
+	public UserAccount getUserAccount() {
+		return userAccount;
+	}
+
+	public void setUserAccount(UserAccount userAccount) {
+		this.userAccount = userAccount;
+	}
+
+	public DiscountCode getDiscountCode() {
+		return discountCode;
+	}
+
+	public void setDiscountCode(DiscountCode discountCode) {
+		this.discountCode = discountCode;
+	}
 
  	
 }

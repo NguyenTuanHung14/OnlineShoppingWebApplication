@@ -1,5 +1,6 @@
 package com.nhat.backend.onlineshopping.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -11,6 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "category")
@@ -24,10 +32,10 @@ public class Category {
 	@Column(name = "name")
 	private String name;
 	
-	@OneToMany(fetch = FetchType.LAZY, 
-			mappedBy ="category")
-	private List<Product> listProducts;
-
+	@OneToMany(fetch = FetchType.LAZY,
+			mappedBy = "category")
+	private List<Product> listProducts = new ArrayList<>();
+	
 	public Category() {
 	}
 

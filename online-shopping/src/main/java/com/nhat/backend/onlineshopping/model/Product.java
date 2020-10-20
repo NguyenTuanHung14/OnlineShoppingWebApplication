@@ -1,5 +1,7 @@
 package com.nhat.backend.onlineshopping.model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -14,9 +16,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name = "product")
-public class Product {
+public class Product implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +43,8 @@ public class Product {
 	private String description;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name  = "categoryId")
+	@JoinColumn(name = "category_id")
+	@JsonIgnore
 	private Category category;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -44,7 +52,8 @@ public class Product {
 				name = "OrderDetails",
 				joinColumns = @JoinColumn(name = "productId"),
 				inverseJoinColumns = @JoinColumn(name = "orderId"))
-	private List<Orders>orders;
+	@JsonIgnore
+	private List<Orders>orders = new ArrayList<>();
 
 	public Product() {
 	}
@@ -55,14 +64,6 @@ public class Product {
 
 	public void setOrders(List<Orders> orders) {
 		this.orders = orders;
-	}
-
-	public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
 	}
 
 	public Long getId() {
