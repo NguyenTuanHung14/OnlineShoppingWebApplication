@@ -5,6 +5,7 @@ import {
   List,
   EditButton,
   ShowButton,
+  DeleteButton
 } from 'admin-on-rest';
 import FlatButton from 'material-ui/FlatButton';
 import ChevronLeft from 'material-ui/svg-icons/navigation/chevron-left';
@@ -71,6 +72,7 @@ export const ProductList = (props) => (
       <TextField source='description' />
       <EditButton />
       <ShowButton />
+      <DeleteButton />
     </Datagrid>
   </List>
 );
