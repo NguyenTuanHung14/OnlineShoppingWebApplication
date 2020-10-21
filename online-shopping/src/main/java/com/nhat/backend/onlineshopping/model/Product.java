@@ -34,6 +34,7 @@ public class Product {
 	@Column
 	private String size;
 	
+	
 	@Column
 	private String description;
 	
