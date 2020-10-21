@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name ="discountCode")
@@ -21,7 +22,7 @@ public class DiscountCode {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "discountCodeId")
 	private Long Id;
 	
 	@Column(name = "code")
@@ -40,6 +41,7 @@ public class DiscountCode {
 	
 	@OneToMany(fetch = FetchType.LAZY,
 			mappedBy = "discountCode")
+	@JsonIgnore
 	private List<Orders> listOrders;
 
 	public DiscountCode() {
