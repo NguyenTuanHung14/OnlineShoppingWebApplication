@@ -17,7 +17,13 @@ class Landing extends Component {
       <Spinner />
     );
     if (this.props.productList) {
-      productList = <ProductList productList={this.props.productList} />;
+      productList = (
+        <Row>
+          <Col>
+            <ProductList productList={this.props.productList} />
+          </Col>
+        </Row>
+      );
     }
     return (
       <Container className='py-4'>
@@ -35,9 +41,7 @@ class Landing extends Component {
             <Carousel />
           </Col>
         </Row>
-        <Row>
-          <Col>{productList}</Col>
-        </Row>
+        {productList}
       </Container>
     );
   }

@@ -8,7 +8,7 @@ export default (props) => {
     <div>
       <Row>
         <Col className='my-auto'>
-          <h1>Product List</h1>
+          <h1>Gợi ý hôm nay</h1>
         </Col>
       </Row>
       <Row>
