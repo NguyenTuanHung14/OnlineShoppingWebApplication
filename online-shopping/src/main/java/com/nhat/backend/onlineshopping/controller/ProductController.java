@@ -64,5 +64,6 @@ public class ProductController {
 		 Product updatedProduct = productsRepository.save(product);
 		return ResponseEntity.ok(updatedProduct);		
 	 }
+	 // delete product
 	
 }
