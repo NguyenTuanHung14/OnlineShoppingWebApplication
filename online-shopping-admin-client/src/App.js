@@ -2,7 +2,12 @@ import React from 'react';
 import { Admin, Resource } from 'admin-on-rest';
 
 import Dashboard from './components/dashboard';
-import { ProductList, ProductEdit, ProductCreate } from './components/products';
+import {
+  ProductList,
+  ProductEdit,
+  ProductCreate,
+  ProductShow,
+} from './components/products';
 import { restClient } from './dataProvider';
 
 function App(props) {

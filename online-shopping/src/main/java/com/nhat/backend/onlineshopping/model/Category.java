@@ -34,6 +34,7 @@ public class Category {
 	
 	@OneToMany(fetch = FetchType.LAZY,
 			mappedBy = "category")
+
 	private List<Product> listProducts = new ArrayList<>();
 	
 	public Category() {
