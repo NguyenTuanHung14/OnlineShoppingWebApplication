@@ -1,17 +1,17 @@
 const express = require('express');
 
 const Product = require('../../models/product');
-const router = express.Router();
 const { BadRequestError } = require('@thticket/common');
+const router = express.Router();
 
-router.delete('/api/products/:id', async (req, res) => {
-  const doc = await Product.findByIdAndDelete(req.params.id);
+router.get('/api/products/:id', async (req, res) => {
+  const product = await Product.findById(req.params.id);
 
-  if (!doc) {
+  if (!product) {
     throw new BadRequestError('Document ID not found!');
   }
-
-  res.status(204).json(null);
+  console.log(product);
+  res.status(201).json(product);
 });
 
 module.exports = router;

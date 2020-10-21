@@ -5,10 +5,7 @@ const router = express.Router();
 
 router.post('/api/products', async (req, res) => {
   const createdProduct = await Product.create(req.body);
-  res.status(201).send({
-    status: 'success',
-    data: createdProduct,
-  });
+  res.status(201).send(createdProduct);
 });
 
 module.exports = router;

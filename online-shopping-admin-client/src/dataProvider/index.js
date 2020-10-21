@@ -7,6 +7,6 @@ const httpClient = (url, options = {}) => {
   //options.headers.set('x-access-token', localStorage.getItem('token'));
   return fetchUtils.fetchJson(url, options);
 };
-const restClient = simpleRestClient('http://localhost:8080/api/v1', httpClient);
+const restClient = simpleRestClient('http://localhost:3001/api', httpClient);
 
 export { restClient };

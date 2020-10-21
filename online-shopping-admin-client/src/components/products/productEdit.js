@@ -39,13 +39,14 @@ export const ProductEdit = ({ ...props }) => {
             multiline={true}
             validate={required}
           />
-          <TextInput
+          <SelectArrayInput
             label='Size'
-            autoFocus
             source='size'
-            fullWidth={true}
-            multiline={true}
-            validate={required}
+            choices={[
+              { id: 'M', name: 'M' },
+              { id: 'L', name: 'L' },
+              { id: 'XL', name: 'XL' },
+            ]}
           />
           {/* <SelectArrayInput
             label='Size'

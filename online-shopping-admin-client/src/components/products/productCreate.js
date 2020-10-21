@@ -30,15 +30,15 @@ export const ProductCreate = ({ ...props }) => {
             multiline={true}
             validate={required}
           />
-          <TextInput
+          {/* <TextInput
             label='Size'
             autoFocus
             source='size'
             fullWidth={true}
             multiline={true}
             validate={required}
-          />
-          {/* <SelectArrayInput
+          /> */}
+          <SelectArrayInput
             label='Size'
             source='size'
             choices={[
@@ -46,7 +46,7 @@ export const ProductCreate = ({ ...props }) => {
               { id: 'L', name: 'L' },
               { id: 'XL', name: 'XL' },
             ]}
-          /> */}
+          />
 
           <ImageInput label='Hình ảnh' accept='image/*'>
             <ImageField />

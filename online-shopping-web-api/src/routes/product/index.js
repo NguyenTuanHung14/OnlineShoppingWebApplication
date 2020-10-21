@@ -3,4 +3,5 @@ module.exports = {
   showProductRoute: require('./showProduct'),
   updateProductRoute: require('./updateOne'),
   deleteProductRoute: require('./deleteOne'),
+  getOneProductRoute: require('./getOne'),
 };

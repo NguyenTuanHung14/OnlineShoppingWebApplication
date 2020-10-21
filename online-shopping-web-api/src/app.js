@@ -9,6 +9,7 @@ const {
   showProductRoute,
   createProductRoute,
   deleteProductRoute,
+  getOneProductRoute,
 } = require('./routes/product');
 const {
   updateCategoryRoute,
@@ -29,6 +30,7 @@ app.use(function (req, res, next) {
   next();
 });
 app.use(showProductRoute);
+app.use(getOneProductRoute);
 app.use(createProductRoute);
 app.use(updateProductRoute);
 app.use(deleteProductRoute);
@@ -37,6 +39,7 @@ app.use(showCategoryRoute);
 app.use(createCategoryRoute);
 app.use(updateCategoryRoute);
 app.use(deleteCategoryRoute);
+
 app.all('*', () => {
   throw new NotFoundError();
 });
