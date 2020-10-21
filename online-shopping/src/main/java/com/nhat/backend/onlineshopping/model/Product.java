@@ -28,10 +28,9 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @Entity
 @Table(name = "product")
 public class Product implements Serializable {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "productId")
 	private Long Id;
 	
 	@Column
@@ -43,12 +42,12 @@ public class Product implements Serializable {
 	@Column
 	private String size;
 	
+	
 	@Column
 	private String description;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "category_id")
-	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "categoryId")
 	private Category category;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -62,6 +61,19 @@ public class Product implements Serializable {
 	public Product() {
 	}
 
+	
+	public Product(Long id, String name, Double price, String size, String description, Category category,
+			List<Orders> orders) {
+		Id = id;
+		this.name = name;
+		this.price = price;
+		this.size = size;
+		this.description = description;
+		this.category = category;
+		this.orders = orders;
+	}
+
+
 	public List<Orders> getOrders() {
 		return orders;
 	}
@@ -72,6 +84,14 @@ public class Product implements Serializable {
 
 	public Long getId() {
 		return Id;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public String getName() {

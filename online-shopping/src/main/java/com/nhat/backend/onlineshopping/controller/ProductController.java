@@ -46,10 +46,10 @@ public class ProductController {
 	// get product by id rest api
 	 @GetMapping("/products/{id}")
 	 public ResponseEntity<Product> getProductById(@PathVariable Long id){ 
-	 Product product = productsRepository.findById(id)
-			 .orElseThrow(() -> new MyResourceNotFoundException("Product not exist with id :"+id ));
-	return ResponseEntity.ok(product);		
-}
+		 	Product product = productsRepository.findById(id)
+		 			.orElseThrow(() -> new MyResourceNotFoundException("Product not exist with id :"+id ));
+	 		return ResponseEntity.ok(product);		
+	 }
 		// update product  rest api
 	 @PutMapping("/products/{id}")
 		 public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product productDetails){ 
@@ -64,5 +64,6 @@ public class ProductController {
 		 Product updatedProduct = productsRepository.save(product);
 		return ResponseEntity.ok(updatedProduct);		
 	 }
+	 // delete product
 	
 }

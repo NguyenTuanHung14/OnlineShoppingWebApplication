@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class UserAccount {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "userAccountId")
 	private Long Id;
 	
 	@Column(name = "name")
@@ -37,6 +37,7 @@ public class UserAccount {
 	
 	@OneToMany(fetch = FetchType.LAZY,
 			mappedBy = "userAccount")
+	@JsonIgnore
 	private List<Orders> listOrders;
 	
 	public UserAccount() {

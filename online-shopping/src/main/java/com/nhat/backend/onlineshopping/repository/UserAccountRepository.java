@@ -1,13 +1,11 @@
 package com.nhat.backend.onlineshopping.repository;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.nhat.backend.onlineshopping.model.Product;
+import com.nhat.backend.onlineshopping.model.UserAccount;
 
 @Repository
-public interface ProductsRepository extends JpaRepository<Product, Long> {
-	
+public interface UserAccountRepository extends JpaRepository<UserAccount, Long> {
 
 }
