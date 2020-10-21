@@ -7,12 +7,11 @@ import Landing from './containers/landingPage/Landing';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import './App.css';
-import Spinner from './components/UI/Spinner/Spinner';
+
 const App = () => (
   <Router>
     <Fragment>
       <Navbar />
-      <Spinner />
       <Switch>
         <Route exact path='/' component={Landing} />
         <Route exact path='/dangky' component={Register} />
