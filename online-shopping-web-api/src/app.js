@@ -23,8 +23,10 @@ const {
   deleteUserRoute,
   getOneUserRoute,
   showUserRoute,
-  updateUserRoute
+  updateUserRoute,
+  loginUserRoute,
 } = require('./routes/user');
+const auth = require('./middleware/auth');
 
 const app = express();
 app.use(json());
@@ -54,6 +56,7 @@ app.use(createUsertRoute);
 app.use(deleteUserRoute);
 app.use(updateUserRoute);
 app.use(getOneUserRoute);
+app.use(loginUserRoute);
 
 
 app.all('*', () => {

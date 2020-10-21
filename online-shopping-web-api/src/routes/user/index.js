@@ -4,5 +4,6 @@ module.exports = {
     updateUserRoute: require('./updateOne'),
     deleteUserRoute: require('./deleteOne'),
     getOneUserRoute: require('./getOne'),
+    loginUserRoute:require('./login'),
   };
   

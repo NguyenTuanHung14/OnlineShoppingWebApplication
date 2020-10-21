@@ -27,22 +27,7 @@ router.post('/api/account', async (req, res) => {
     user.password = await bcrypt.hash(password, salt);
     await user.save();
 
-    // return jsonwebtoken
-    const payload = {
-      user: {
-        id: user.id
-      }
-    };
-    jwt.sign(
-      payload,
-      process.env.jwtSecret,
-      { expiresIn: 36000 },
-      (err, token) => {
-        if (err) throw err;
-        res.json({ token });
-      }
-    );
-
+    res.status(201).send("successful.");
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');
