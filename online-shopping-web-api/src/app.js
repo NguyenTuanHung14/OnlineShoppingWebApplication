@@ -17,6 +17,15 @@ const {
   createCategoryRoute,
   deleteCategoryRoute,
 } = require('./routes/category');
+
+const {
+  createUsertRoute,
+  deleteUserRoute,
+  getOneUserRoute,
+  showUserRoute,
+  updateUserRoute
+} = require('./routes/user');
+
 const app = express();
 app.use(json());
 app.use(cors());
@@ -39,6 +48,13 @@ app.use(showCategoryRoute);
 app.use(createCategoryRoute);
 app.use(updateCategoryRoute);
 app.use(deleteCategoryRoute);
+
+app.use(showUserRoute);
+app.use(createUsertRoute);
+app.use(deleteUserRoute);
+app.use(updateUserRoute);
+app.use(getOneUserRoute);
+
 
 app.all('*', () => {
   throw new NotFoundError();
