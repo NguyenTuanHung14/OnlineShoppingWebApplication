@@ -43,6 +43,7 @@ public class Product implements Serializable {
 	@Column
 	private String size;
 	
+	
 	@Column
 	private String description;
 	
