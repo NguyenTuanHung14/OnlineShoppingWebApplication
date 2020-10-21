@@ -5,6 +5,9 @@ import {
   List,
   EditButton,
   ShowButton,
+  ReferenceManyField,
+  ChipField,
+  SingleFieldList,
 } from 'admin-on-rest';
 import FlatButton from 'material-ui/FlatButton';
 import ChevronLeft from 'material-ui/svg-icons/navigation/chevron-left';
@@ -61,14 +64,14 @@ const ProductPagination = ({ page, perPage, total, setPage }) => {
 export const ProductList = (props) => (
   <List {...props} filters={<ProductFilter />} perPage={5}>
     <Datagrid
-      styles={datagridStyles}
       rowStyle={postRowStyle}
       bodyOptions={{ stripedRows: true, showRowHover: true }}
     >
-      <TextField source='name' />
-      <TextField source='price' />
-      <TextField source='size' />
-      <TextField source='description' />
+      <TextField label='Tên sản phẩm' source='name' />
+      <TextField label='Giá' source='price' />
+      <TextField label='Kích cỡ' source='size' />
+      <TextField label='Loại sản phẩm' source='category.name' />
+      <TextField source='Mô tả' source='description' />
       <EditButton />
       <ShowButton />
     </Datagrid>

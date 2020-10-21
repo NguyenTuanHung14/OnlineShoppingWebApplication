@@ -11,12 +11,7 @@ router.delete('/api/categories/:id', async (req, res) => {
     throw new BadRequestError('Document ID not found!');
   }
 
-  res.status(204).json({
-    status: 'success',
-    data: {
-      data: null,
-    },
-  });
+  res.status(204).json(null);
 });
 
 module.exports = router;

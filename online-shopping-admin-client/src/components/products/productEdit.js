@@ -9,6 +9,8 @@ import {
   ImageInput,
   ImageField,
   Edit,
+  ReferenceInput,
+  SelectInput,
 } from 'admin-on-rest';
 
 import RichTextInput from 'aor-rich-text-input';
@@ -48,6 +50,13 @@ export const ProductEdit = ({ ...props }) => {
               { id: 'XL', name: 'XL' },
             ]}
           />
+          <ReferenceInput
+            label='Loại sản phẩm'
+            source='category'
+            reference='categories'
+          >
+            <SelectInput optionText='name' />
+          </ReferenceInput>
           {/* <SelectArrayInput
             label='Size'
             source='size'

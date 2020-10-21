@@ -14,12 +14,7 @@ router.put('/api/categories/:id', async (req, res) => {
     throw new BadRequestError('Document ID not found!');
   }
 
-  res.status(200).json({
-    status: 'success',
-    data: {
-      data: doc,
-    },
-  });
+  res.status(200).json(doc);
 });
 
 module.exports = router;

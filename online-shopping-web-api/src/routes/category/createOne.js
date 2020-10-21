@@ -5,10 +5,7 @@ const router = express.Router();
 
 router.post('/api/categories', async (req, res) => {
   const createdCategory = await Category.create(req.body);
-  res.status(201).send({
-    status: 'success',
-    data: createdCategory,
-  });
+  res.status(201).send(createdCategory);
 });
 
 module.exports = router;

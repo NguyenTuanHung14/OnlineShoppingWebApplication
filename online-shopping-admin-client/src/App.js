@@ -19,6 +19,7 @@ function App(props) {
         create={ProductCreate}
         edit={ProductEdit}
       />
+      <Resource name='categories' />
     </Admin>
   );
 }

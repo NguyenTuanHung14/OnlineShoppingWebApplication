@@ -5,9 +5,11 @@ import {
   required,
   TabbedForm,
   SelectArrayInput,
+  ReferenceInput,
   FormTab,
   ImageInput,
   ImageField,
+  SelectInput,
 } from 'admin-on-rest';
 
 import RichTextInput from 'aor-rich-text-input';
@@ -47,9 +49,15 @@ export const ProductCreate = ({ ...props }) => {
               { id: 'XL', name: 'XL' },
             ]}
           />
-
-          <ImageInput label='Hình ảnh' accept='image/*'>
-            <ImageField />
+          <ReferenceInput
+            label='Loại sản phẩm'
+            source='category'
+            reference='categories'
+          >
+            <SelectInput optionText='name' />
+          </ReferenceInput>
+          <ImageInput source='images' label='Hình ảnh' accept='image/*'>
+            <ImageField source='src' title='title' />
           </ImageInput>
         </FormTab>
         <FormTab label='Mô tả'>
