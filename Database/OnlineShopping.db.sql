@@ -1,9 +1,21 @@
 USE MASTER 
+GO
+
 DROP DATABASE IF EXISTS OnlineShopping
 CREATE DATABASE OnlineShopping
 GO
 
 USE OnlineShopping
+GO
+
+DROP TABLE IF EXISTS order_details
+DROP TABLE IF EXISTS orders
+DROP TABLE IF EXISTS user_account
+DROP TABLE IF EXISTS discount_code
+
+DROP TABLE IF EXISTS product
+DROP TABLE IF EXISTS category
+
 GO
 
 DROP TABLE IF EXISTS OrderDetails

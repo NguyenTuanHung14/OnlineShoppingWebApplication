@@ -20,47 +20,61 @@ import com.nhat.backend.onlineshopping.services.ProductService;
 public class ProductController {
 
 	@Autowired
-	private ProductService service;
-	
+	private ProductsRepository productsRepository;
+
 	//get Products
 	@GetMapping(path = "/products")
-	public ResponseEntity<List<Product>> getProducts(@RequestParam(defaultValue = "0") Integer page,
-													 @RequestParam(defaultValue = "10") Integer perPage){
-
-		List<Product> products = service.getAllProduct(page, perPage);
+	public ResponseEntity<List<Product>> getProducts(){
+		List<Product> products = productsRepository.findAll();
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Access-Control-Allow-Headers","Origin, X-Request-With, Content-Type,Accept" );
 		headers.add("Access-Control-Expose-Headers","X-total-Count,Content-Range" );
 		headers.add("Content-Range",String.format("%d", products.size()));
 		return new ResponseEntity<List<Product>>(products, headers,HttpStatus.OK);
 	}
-
-
-//	@PostMapping(path = "/products")
-//	public Product createProduct(@RequestBody Product product){
-//		return productsRepository.save(product);
+	
+	//get Products
+//	@GetMapping(path = "/products")
+//	public ResponseEntity<List<Product>> getProducts(@RequestParam(defaultValue = "0") Integer page,
+//													 @RequestParam(defaultValue = "10") Integer perPage){
+//
+//		List<Product> products = service.getAllProduct(page, perPage);
+//		HttpHeaders headers = new HttpHeaders();
+//		headers.add("Access-Control-Allow-Headers","Origin, X-Request-With, Content-Type,Accept" );
+//		headers.add("Access-Control-Expose-Headers","X-total-Count,Content-Range" );
+//		headers.add("Content-Range",String.format("%d", products.size()));
+//		return new ResponseEntity<List<Product>>(products, headers,HttpStatus.OK);
 //	}
-//	// get product by id rest api
-//	 @GetMapping("/products/{id}")
-//	 public ResponseEntity<Product> getProductById(@PathVariable Long id){
-//	 Product product = productsRepository.findById(id)
-//			 .orElseThrow(() -> new MyResourceNotFoundException("Product not exist with id :"+id ));
-//	return ResponseEntity.ok(product);
-//}
-//		// update product  rest api
-//	 @PutMapping("/products/{id}")
-//		 public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product productDetails){
-//		 Product product = productsRepository.findById(id)
-//				 .orElseThrow(() -> new MyResourceNotFoundException("Product not exist with id :"+id ));
-//		 product.setName(productDetails.getName());
-//		 product.setPrice(productDetails.getPrice());
-//		 product.setSize(productDetails.getSize());
-//		 product.setDescription(productDetails.getDescription());
-//
-//
-//		 Product updatedProduct = productsRepository.save(product);
-//		return ResponseEntity.ok(updatedProduct);
-//	 }
+
+
+
+	
+	@PostMapping(path = "/products")
+	public Product createProduct(@RequestBody Product product){
+		return productsRepository.save(product);
+	}
+	// get product by id rest api
+	 @GetMapping("/products/{id}")
+	 public ResponseEntity<Product> getProductById(@PathVariable Long id){ 
+		 	Product product = productsRepository.findById(id)
+		 			.orElseThrow(() -> new MyResourceNotFoundException("Product not exist with id :"+id ));
+	 		return ResponseEntity.ok(product);		
+	 }
+		// update product  rest api
+	 @PutMapping("/products/{id}")
+		 public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product productDetails){ 
+		 Product product = productsRepository.findById(id)
+				 .orElseThrow(() -> new MyResourceNotFoundException("Product not exist with id :"+id ));
+		 product.setName(productDetails.getName());
+		 product.setPrice(productDetails.getPrice());
+		 product.setSize(productDetails.getSize());
+		 product.setDescription(productDetails.getDescription());
+		 
+		
+		 Product updatedProduct = productsRepository.save(product);
+		return ResponseEntity.ok(updatedProduct);		
+	 }
+
 	 // delete product
 	
 }

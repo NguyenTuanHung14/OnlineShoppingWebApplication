@@ -27,6 +27,7 @@ public class Orders {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ordersId")
 	private Long Id;
 	
 	@Column(name = "address")
@@ -39,12 +40,10 @@ public class Orders {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "userAccountId")
-	@JsonIgnore
 	private UserAccount userAccount;
 
 	@ManyToOne
 	@JoinColumn(name = "discountCodeId")
-	@JsonIgnore
 	private DiscountCode discountCode;
 
 	@ManyToMany(fetch = FetchType.LAZY)

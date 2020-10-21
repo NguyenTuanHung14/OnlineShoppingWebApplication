@@ -1,8 +1,10 @@
 package com.nhat.backend.onlineshopping.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,22 +24,29 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "category")
-public class Category {
-	
+public class Category implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "categoryId")
 	private Long Id;
-	
+
 	@Column(name = "name")
 	private String name;
-	
-	@OneToMany(fetch = FetchType.LAZY,
-			mappedBy = "category")
 
-	private List<Product> listProducts = new ArrayList<>();
-	
+	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+			fetch = FetchType.LAZY,
+			mappedBy = "category")
+	@JsonIgnore
+	private List<Product> listProducts ;
+
 	public Category() {
+	}
+
+	public Category(Long id, String name, List<Product> listProducts) {
+		Id = id;
+		this.name = name;
+		this.listProducts = listProducts;
 	}
 
 	public Long getId() {
@@ -59,5 +68,7 @@ public class Category {
 	public void setListProducts(List<Product> listProducts) {
 		this.listProducts = listProducts;
 	}
+
+
 
 }
