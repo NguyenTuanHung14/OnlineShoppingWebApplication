@@ -5,6 +5,7 @@ import {
   List,
   EditButton,
   ShowButton,
+  DeleteButton,
 } from 'admin-on-rest';
 import FlatButton from 'material-ui/FlatButton';
 import ChevronLeft from 'material-ui/svg-icons/navigation/chevron-left';
