@@ -27,6 +27,11 @@ class Landing extends Component {
     }
     return (
       <Container className='py-4'>
+         <Row className='mt-4'>
+          <Col>
+            <Carousel />
+          </Col>
+        </Row>
         <Row>
           <Col>
             <Image
@@ -34,11 +39,6 @@ class Landing extends Component {
               alt='Image cover'
               fluid
             />
-          </Col>
-        </Row>
-        <Row className='mt-4'>
-          <Col>
-            <Carousel />
           </Col>
         </Row>
         {productList}

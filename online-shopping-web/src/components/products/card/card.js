@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import ProductDetail from '../../../containers/productDetails/productDetails';
 import './card.css';
 class ProductCard extends Component {
+  
   clickHandler = () => {
     this.props.history.replace('/detail');
   };
@@ -26,16 +27,14 @@ class ProductCard extends Component {
             </div>
           </div>
         </div>
-
         <div className='box-down'>
           <div className='h-bg'>
             <div className='h-bg-inner'></div>
           </div>
-
           <a className='cart' href='#'>
             <span className='price'>${this.props.product.price}</span>
             <span className='add-to-cart'>
-              <span onClick={this.clickHandler} className='txt'>
+              <span onClick={this.clickHandler} className="txt">
                 Chi tiết
               </span>
             </span>
