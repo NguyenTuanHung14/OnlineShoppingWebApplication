@@ -23,7 +23,9 @@ const {
   deleteUserRoute,
   getOneUserRoute,
   showUserRoute,
-  updateUserRoute
+  updateUserRoute,
+  authUserRoute,
+  getTokenRoute
 } = require('./routes/user');
 
 const app = express();
@@ -54,7 +56,8 @@ app.use(createUsertRoute);
 app.use(deleteUserRoute);
 app.use(updateUserRoute);
 app.use(getOneUserRoute);
-
+app.use(authUserRoute);
+app.use(getTokenRoute);
 
 app.all('*', () => {
   throw new NotFoundError();

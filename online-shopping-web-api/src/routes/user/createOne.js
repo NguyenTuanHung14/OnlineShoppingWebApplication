@@ -8,7 +8,7 @@ const { BadRequestError } = require('@thticket/common');
 // @route   POST api/account
 // @desc    Register an account
 // @access  Public
-router.post('/api/account', async (req, res) => {
+router.post('/api/register', async (req, res) => {
   try {
     const { username, email, password } = req.body;
     let user = await User.findOne({email, username});
@@ -26,23 +26,8 @@ router.post('/api/account', async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
     await user.save();
-
-    // return jsonwebtoken
-    const payload = {
-      user: {
-        id: user.id
-      }
-    };
-    jwt.sign(
-      payload,
-      process.env.jwtSecret,
-      { expiresIn: 36000 },
-      (err, token) => {
-        if (err) throw err;
-        res.json({ token });
-      }
-    );
-
+    res.status(201).send(user);
+    
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');
