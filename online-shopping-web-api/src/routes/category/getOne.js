@@ -1,17 +1,16 @@
 const express = require('express');
 
 const Category = require('../../models/categories');
-const router = express.Router();
 const { BadRequestError } = require('@thticket/common');
+const router = express.Router();
 
-router.delete('/api/categories/:id', async (req, res) => {
-  const doc = await Category.findByIdAndDelete(req.params.id);
+router.get('/api/categories/:id', async (req, res) => {
+  const category = await Category.findById(req.params.id);
 
-  if (!doc) {
+  if (!category) {
     throw new BadRequestError('Document ID not found!');
   }
-
-  res.status(201).json(doc);
+  res.status(201).json(category);
 });
 
 module.exports = router;

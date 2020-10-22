@@ -18,12 +18,10 @@ const productSchema = new mongoose.Schema(
       default: 'Còn hàng',
     },
     size: [String],
-    images: [
-      {
-        type: String,
-        default: 'default.png',
-      },
-    ],
+    images: {
+      type: 'String',
+      default: 'default.png',
+    },
     category: {
       type: mongoose.Schema.ObjectId,
       ref: 'Category',

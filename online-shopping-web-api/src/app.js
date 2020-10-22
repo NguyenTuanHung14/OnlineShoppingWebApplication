@@ -16,6 +16,7 @@ const {
   showCategoryRoute,
   createCategoryRoute,
   deleteCategoryRoute,
+  getOneCategory,
 } = require('./routes/category');
 const app = express();
 app.use(json());
@@ -39,7 +40,7 @@ app.use(showCategoryRoute);
 app.use(createCategoryRoute);
 app.use(updateCategoryRoute);
 app.use(deleteCategoryRoute);
-
+app.use(getOneCategory);
 app.all('*', () => {
   throw new NotFoundError();
 });
