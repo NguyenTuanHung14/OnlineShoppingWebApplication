@@ -24,7 +24,8 @@ const {
   getOneUserRoute,
   showUserRoute,
   updateUserRoute,
-  loginUserRoute,
+  authUserRoute,
+  getTokenRoute
 } = require('./routes/user');
 const auth = require('./middleware/auth');
 
@@ -56,8 +57,8 @@ app.use(createUsertRoute);
 app.use(deleteUserRoute);
 app.use(updateUserRoute);
 app.use(getOneUserRoute);
-app.use(loginUserRoute);
-
+app.use(authUserRoute);
+app.use(getTokenRoute);
 
 app.all('*', () => {
   throw new NotFoundError();
