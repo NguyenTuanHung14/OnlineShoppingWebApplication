@@ -11,6 +11,7 @@ import {
   Edit,
   ReferenceInput,
   SelectInput,
+  CheckboxGroupInput,
 } from 'admin-on-rest';
 
 import RichTextInput from 'aor-rich-text-input';
@@ -21,7 +22,10 @@ import RichTextInput from 'aor-rich-text-input';
 //     {hasShow && <ShowButton basePath={basePath} record={data} />}
 //   </TopToolbar>
 // );
-
+const choices = [
+  { _id: 1, value: 'Còn hàng' },
+  { _id: 1, value: 'Tạm hết hàng' },
+];
 export const ProductEdit = ({ ...props }) => {
   return (
     <Edit {...props}>
@@ -37,6 +41,21 @@ export const ProductEdit = ({ ...props }) => {
             label='Giá'
             autoFocus
             source='price'
+            fullWidth={true}
+            multiline={true}
+            validate={required}
+          />
+          <SelectInput
+            label='Tình trạng'
+            source='status'
+            choices={choices}
+            optionText='value'
+            optionValue='value'
+          />
+          <TextInput
+            label='URL hình ảnh'
+            autoFocus
+            source='images'
             fullWidth={true}
             multiline={true}
             validate={required}
@@ -57,19 +76,7 @@ export const ProductEdit = ({ ...props }) => {
           >
             <SelectInput optionText='name' />
           </ReferenceInput>
-          {/* <SelectArrayInput
-            label='Size'
-            source='size'
-            choices={[
-              { id: 'M', name: 'M' },
-              { id: 'L', name: 'L' },
-              { id: 'XL', name: 'XL' },
-            ]}
-          /> */}
-
-          <ImageInput label='Hình ảnh' accept='image/*'>
-            <ImageField />
-          </ImageInput>
+          
         </FormTab>
         <FormTab label='Mô tả'>
           <RichTextInput

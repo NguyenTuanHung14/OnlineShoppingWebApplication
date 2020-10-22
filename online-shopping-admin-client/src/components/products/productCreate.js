@@ -10,9 +10,15 @@ import {
   ImageInput,
   ImageField,
   SelectInput,
+  CheckboxGroupInput,
 } from 'admin-on-rest';
-
 import RichTextInput from 'aor-rich-text-input';
+
+const choices = [
+  { _id: 1, value: 'Còn hàng' },
+  { _id: 1, value: 'Tạm hết hàng' },
+];
+
 export const ProductCreate = ({ ...props }) => {
   return (
     <Create {...props}>
@@ -28,6 +34,21 @@ export const ProductCreate = ({ ...props }) => {
             label='Giá'
             autoFocus
             source='price'
+            fullWidth={true}
+            multiline={true}
+            validate={required}
+          />
+          <SelectInput
+            label='Tình trạng'
+            source='status'
+            choices={choices}
+            optionText='value'
+            optionValue='value'
+          />
+          <TextInput
+            label='URL hình ảnh'
+            autoFocus
+            source='images'
             fullWidth={true}
             multiline={true}
             validate={required}
@@ -56,7 +77,11 @@ export const ProductCreate = ({ ...props }) => {
           >
             <SelectInput optionText='name' />
           </ReferenceInput>
-          <ImageInput source='images' label='Hình ảnh' accept='image/*'>
+          <ImageInput
+            source='images'
+            label='Vui lòng chọn hình'
+            accept='image/*'
+          >
             <ImageField source='src' title='title' />
           </ImageInput>
         </FormTab>

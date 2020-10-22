@@ -3,4 +3,5 @@ module.exports = {
   showCategoryRoute: require('./showCategory'),
   updateCategoryRoute: require('./updateOne'),
   deleteCategoryRoute: require('./deleteOne'),
+  getOneCategory: require('./getOne'),
 };

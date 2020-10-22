@@ -16,6 +16,7 @@ const {
   showCategoryRoute,
   createCategoryRoute,
   deleteCategoryRoute,
+  getOneCategory,
 } = require('./routes/category');
 
 const {
@@ -25,7 +26,7 @@ const {
   showUserRoute,
   updateUserRoute,
   authUserRoute,
-  getTokenRoute
+  getTokenRoute,
 } = require('./routes/user');
 const auth = require('./middleware/auth');
 
@@ -51,6 +52,7 @@ app.use(showCategoryRoute);
 app.use(createCategoryRoute);
 app.use(updateCategoryRoute);
 app.use(deleteCategoryRoute);
+app.use(getOneCategory);
 
 app.use(showUserRoute);
 app.use(createUsertRoute);

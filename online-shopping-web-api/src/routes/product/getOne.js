@@ -10,7 +10,6 @@ router.get('/api/products/:id', async (req, res) => {
   if (!product) {
     throw new BadRequestError('Document ID not found!');
   }
-  console.log(product);
   res.status(201).json(product);
 });
 
