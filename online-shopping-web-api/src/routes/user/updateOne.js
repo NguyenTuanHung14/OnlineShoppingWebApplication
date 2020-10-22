@@ -4,7 +4,7 @@ const User = require('../../models/user');
 const router = express.Router();
 const { BadRequestError } = require('@thticket/common');
 
-router.put('/api/user/:id',auth, async (req, res) => {
+router.put('/api/user/:id', async (req, res) => {
   const doc = await User.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,

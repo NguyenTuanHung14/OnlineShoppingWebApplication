@@ -60,7 +60,6 @@ app.use(deleteUserRoute);
 app.use(updateUserRoute);
 app.use(getOneUserRoute);
 app.use(authUserRoute);
-app.use(getTokenRoute);
 
 app.all('*', () => {
   throw new NotFoundError();
