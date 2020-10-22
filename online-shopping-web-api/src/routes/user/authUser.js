@@ -14,7 +14,7 @@ route.post('/api/login', async (req, res) => {
     try {
 
         if (email === "admin" && password === "admin") {
-            return res.status(201).json("ADMIN la tao.");
+            return res.status(201).json('ADMIN page');
         }
         else {
             // check existed user
@@ -40,7 +40,8 @@ route.post('/api/login', async (req, res) => {
                 { expiresIn: 36000 },
                 (err, token) => {
                     if (err) throw err;
-                    res.json({ token });
+                    res.json({ token, user });
+                    
                 }
             );
         }

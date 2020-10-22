@@ -7,7 +7,7 @@ const { BadRequestError } = require('@thticket/common');
 // @route   DEL API/users
 // @desc    Delete route
 // @access  Public
-router.delete('/api/account/:id',auth, async (req, res) => {
+router.delete('/api/account/:id', async (req, res) => {
   const doc = await User.findByIdAndDelete(req.params.id);
 
   if (!doc) {
