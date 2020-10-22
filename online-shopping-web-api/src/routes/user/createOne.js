@@ -10,13 +10,18 @@ const { BadRequestError } = require('@thticket/common');
 // @access  Public
 router.post('/api/register', async (req, res) => {
   try {
-    const { username, email, password } = req.body;
-    let user = await User.findOne({email, username});
-
-    if (user) {
-      throw new BadRequestError('User is existed!');
+    const { fullname, username, email, password } = req.body;
+    let e = await User.findOne({ email });
+    let u = await User.findOne({ username });
+    if (u) {
+       return res.status(401).json({ msg: 'Username is existed!' });
+    } else if (e) {
+       return res.status(401).json({ msg: 'Email is existed!' });
     }
+
+
     user = new User({
+      fullname,
       username,
       email,
       password
@@ -27,7 +32,7 @@ router.post('/api/register', async (req, res) => {
     user.password = await bcrypt.hash(password, salt);
     await user.save();
     res.status(201).send(user);
-    
+
   } catch (error) {
     console.error(error.message);
     res.status(500).send('Server error');

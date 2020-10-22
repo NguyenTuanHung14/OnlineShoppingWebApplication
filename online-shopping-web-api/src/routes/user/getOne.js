@@ -14,7 +14,6 @@ router.get('/api/user/:id',auth, async (req, res) => {
   if (!user) {
     throw new BadRequestError('Document ID not found!');
   }
-  console.log(user);
   res.status(201).json(user);
 });
 
