@@ -12,11 +12,8 @@ router.post('/api/register', async (req, res) => {
   try {
     const { fullname, username, email, password } = req.body;
     let e = await User.findOne({ email });
-    let u = await User.findOne({ username });
-    if (u) {
-       return res.status(401).json({ msg: 'Username is existed!' });
-    } else if (e) {
-       return res.status(401).json({ msg: 'Email is existed!' });
+    if (e) {
+       return res.status(401).json({ msg: 'User is existed!' });
     }
 
 
@@ -27,6 +24,7 @@ router.post('/api/register', async (req, res) => {
       password
     });
 
+    
     // encrypt password
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
