@@ -30,7 +30,13 @@ if(token!=null){
         <Link to='/'>Trang chủ</Link>
       </h1>
       <ul>
+<<<<<<< HEAD
         
+=======
+      <li>
+          <Link to='/sanpham'>Sản Phẩm</Link>
+        </li>
+>>>>>>> Tuyen
         <li>
            <Link to='/dangnhap'>{obj.dangnhap}</Link>
         </li>

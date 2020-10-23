@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 
 import ProductList from '../../components/products';
-import Carousel from '../../components/casousel';
 import * as actionCreators from '../../store/actions';
 import Spinner from '../../components/UI/Spinner/Spinner';
 class Landing extends Component {
@@ -27,20 +26,7 @@ class Landing extends Component {
     }
     return (
       <Container className='py-4'>
-         <Row className='mt-4'>
-          <Col>
-            <Carousel />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Image
-              src='https://dosi-in.com/dosiinmarketplace.jpg'
-              alt='Image cover'
-              fluid
-            />
-          </Col>
-        </Row>
+<h2>Danh Sách Sản Phẩm</h2>
         {productList}
       </Container>
     );
