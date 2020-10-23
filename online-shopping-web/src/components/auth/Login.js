@@ -30,21 +30,22 @@ class Login extends Component {
  
   handleSubmit = (event) => {
     event.preventDefault();
-    
-    axios.post('login',{email: this.state.email,pass: this.state.password})
+    axios.post('login',this.state)
           .then(res => {
-            this.data=res.data
-            localStorage.setItem('token', this.data.token)      
-            localStorage.setItem('username',this.data.user.username) 
-            this.setState({token:this.data.token})  ;
-            this.setState({user:this.data.user.username})  ;
+            this.state=res.data
+            localStorage.setItem('token', this.state.token)      
+            localStorage.setItem('username',this.state.user.username) 
+            this.setState({token:this.state.token});
+            this.setState({username:this.state.user.username});
+            console.log(this.state.user.username)
+            
           })
           .catch(err => {
             alert("Vui lòng kiểm tra lại thông tin đăng nhập!")
           }) 
     
-    if(this.data.token!=null){
-       return <Redirect to="/" />
+    if( localStorage.getItem('token')!=null){
+       return (<Redirect to="/" />)
     }
   };
  

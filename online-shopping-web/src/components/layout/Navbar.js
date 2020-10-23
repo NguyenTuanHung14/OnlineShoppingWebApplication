@@ -17,9 +17,11 @@ let obj={
   link:"dangky",
   dangky:"Đăng ký"
 }
-if(props.token!=null){
+const token=localStorage.getItem('token')
+if(token!=null){
   obj.dangnhap=localStorage.getItem('username');
   obj.dangky="Đăng xuất"
+ 
 }
   return (
     
