@@ -7,6 +7,7 @@ import Landing from './containers/landingPage/Landing';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import './App.css';
+import sanpham from './containers/landingPage/sanpham';
 
 const App = () => (
   <Router>
@@ -14,6 +15,8 @@ const App = () => (
       <Navbar />
       <Switch>
         <Route exact path='/' component={Landing} />
+        <Route exact path='/sanpham' component={sanpham} />
+
         <Route exact path='/dangky' component={Register} />
         <Route exact path='/dangnhap' component={Login} />
       </Switch>

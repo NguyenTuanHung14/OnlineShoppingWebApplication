@@ -35,7 +35,7 @@ class Register extends Component {
     else{
       axios.post('register',this.state)
             .then(res => {
-              localStorage.setItem('state',res.data.state)
+              return (<Redirect to="/dangnhap" />)
             })
             .catch(err => {
               alert("Email đã được đăng ký!")
@@ -43,7 +43,7 @@ class Register extends Component {
     }
   };
   render() {
-    const state =  localStorage.getItem('state')? <Redirect to="/dangnhap" />:false;
+    const state =  localStorage.getItem('state')? <Redirect to="/dangnhap" />:null;
     return (
       <MDBContainer>
         <MDBRow>

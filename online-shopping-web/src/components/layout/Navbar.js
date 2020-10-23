@@ -17,9 +17,11 @@ let obj={
   link:"dangky",
   dangky:"Đăng ký"
 }
-if(props.token!=null){
+const token=localStorage.getItem('token')
+if(token!=null){
   obj.dangnhap=localStorage.getItem('username');
   obj.dangky="Đăng xuất"
+ 
 }
   return (
     
@@ -28,7 +30,9 @@ if(props.token!=null){
         <Link to='/'>Trang chủ</Link>
       </h1>
       <ul>
-        
+      <li>
+          <Link to='/sanpham'>Sản Phẩm</Link>
+        </li>
         <li>
            <Link to='/dangnhap'>{obj.dangnhap}</Link>
         </li>
