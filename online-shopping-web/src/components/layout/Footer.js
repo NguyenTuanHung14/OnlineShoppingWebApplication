@@ -7,7 +7,7 @@ class Footer extends Component {
                 <footer className=" text-center bg footer">
                     <div style={{ color: 'white' }} className="row">
                         <div className="col col-lg-4">
-                            <h5 >FOLLOW US</h5>
+                            <h5 >FOLLOW US BY</h5>
                             <a className=" text-primary btn-floating btn-lg btn-fb" type="button" role="button"><i className="fab fa-facebook-square fa-2x"></i></a>
                             <a className=" text-danger btn-floating btn-lg btn-ins" type="button" role="button"><i className="fab fa-instagram fa-2x"></i></a>
                         </div>
