@@ -6,24 +6,22 @@ import './card.css';
 class ProductCard extends Component {
   
   clickHandler = () => {
-    this.props.history.replace('/detail');
+    //this.props.history.replace('/detail');
   };
   render() {
     return (
       <div className='el-wrapper'>
         <div className='box-up'>
-          <Card.Img
-            className='img'
-            src='https://product.hstatic.net/1000344185/product/camo-jacket-blue-1_2f32284f5cbb424da9daf881ace987da_master.jpg'
-            alt=''
-          />
+          <Card.Img className='img' src={this.props.product.images} alt='' />
           <div className='img-info'>
             <div className='info-inner'>
               <span className='p-name'>{this.props.product.name}</span>
-              <span className='p-company'>Áo khoác</span>
+              <span className='p-company'>
+                {this.props.product.category.name}
+              </span>
             </div>
             <div className='a-size'>
-              Size có sẵn: <span class='size'>S , M , L , XL</span>
+              Size có sẵn: <span class='size'>{this.props.product.size}</span>
             </div>
           </div>
         </div>

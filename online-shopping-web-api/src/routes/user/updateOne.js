@@ -1,11 +1,11 @@
 const express = require('express');
-
-const Category = require('../../models/categories');
+const auth = require('../../middleware/auth');
+const User = require('../../models/user');
 const router = express.Router();
 const { BadRequestError } = require('@thticket/common');
 
-router.put('/api/categories/:id', async (req, res) => {
-  const doc = await Category.findByIdAndUpdate(req.params.id, req.body, {
+router.put('/api/user/:id', async (req, res) => {
+  const doc = await User.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,
   });

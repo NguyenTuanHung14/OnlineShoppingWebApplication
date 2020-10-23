@@ -16,7 +16,20 @@ const {
   showCategoryRoute,
   createCategoryRoute,
   deleteCategoryRoute,
+  getOneCategory,
 } = require('./routes/category');
+
+const {
+  createUsertRoute,
+  deleteUserRoute,
+  getOneUserRoute,
+  showUserRoute,
+  updateUserRoute,
+  authUserRoute,
+  getTokenRoute,
+} = require('./routes/user');
+const auth = require('./middleware/auth');
+
 const app = express();
 app.use(json());
 app.use(cors());
@@ -39,6 +52,14 @@ app.use(showCategoryRoute);
 app.use(createCategoryRoute);
 app.use(updateCategoryRoute);
 app.use(deleteCategoryRoute);
+app.use(getOneCategory);
+
+app.use(showUserRoute);
+app.use(createUsertRoute);
+app.use(deleteUserRoute);
+app.use(updateUserRoute);
+app.use(getOneUserRoute);
+app.use(authUserRoute);
 
 app.all('*', () => {
   throw new NotFoundError();

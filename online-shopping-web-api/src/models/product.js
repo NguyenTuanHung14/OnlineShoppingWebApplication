@@ -5,6 +5,7 @@ const productSchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, 'Please provide a product name'],
+      unique:true
     },
     price: {
       type: Number,
@@ -14,16 +15,13 @@ const productSchema = new mongoose.Schema(
       type: String,
     },
     status: {
-      type: String,
-      default: 'Còn hàng',
+      type: Boolean,
     },
     size: [String],
-    images: [
-      {
-        type: String,
-        default: 'default.png',
-      },
-    ],
+    images: {
+      type: 'String',
+      default: 'default.png',
+    },
     category: {
       type: mongoose.Schema.ObjectId,
       ref: 'Category',
