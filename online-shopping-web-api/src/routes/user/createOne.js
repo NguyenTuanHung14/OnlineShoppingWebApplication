@@ -24,7 +24,7 @@ router.post('/api/register', async (req, res) => {
       email,
       password
     });
-
+    
     //save username
     var mail = user.email;
     var array = mail.split("@");

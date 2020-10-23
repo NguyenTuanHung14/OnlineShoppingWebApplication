@@ -9,7 +9,8 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 import { store } from './store';
-
+import axios from 'axios';
+axios.defaults.baseURL='http://localhost:3001/api'
 const app = (
   <Provider store={store}>
     <BrowserRouter>
