@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import axios from "axios";
+
 import {
   MDBContainer,
   MDBRow,
@@ -14,23 +16,44 @@ import {
   MDBLink,
 } from "mdbreact";
 import "./Login.css";
+import { Redirect, Route } from "react-router-dom";
+import Landing from "../../containers/landingPage/Landing";
+
 
 class Login extends Component {
   state = {
-    username: null,
-    password: null
+    email: "",
+    password: "",
+    token:null,
+    user:[]
   }
-
+ 
   handleSubmit = (event) => {
     event.preventDefault();
     
-    console.log(this.state.username)
-    console.log(this.state.password)
+    axios.post('login',{email: this.state.email,pass: this.state.password})
+          .then(res => {
+            this.data=res.data
+            localStorage.setItem('token', this.data.token)      
+            localStorage.setItem('username',this.data.user.username) 
+            this.setState({token:this.data.token})  ;
+            this.setState({user:this.data.user.username})  ;
+          })
+          .catch(err => {
+            alert("Vui lòng kiểm tra lại thông tin đăng nhập!")
+          }) 
+    
+    if(this.data.token!=null){
+       return <Redirect to="/" />
+    }
   };
+ 
   render() {
+    const  direct = localStorage.getItem('token') ? <Redirect to="/"/>:null;
     return (
       <MDBContainer>
         <MDBRow>
+          {direct}
           <MDBCol className="d-flex justify-content-center py-4" >
             <MDBFormInline onSubmit={this.handleSubmit} >
               <MDBCard  className="m-0">
@@ -48,8 +71,9 @@ class Login extends Component {
                     error="wrong"
                     success="right"
                     name="username"
-                    onChange={event => this.setState({username: event.target.value})}
+                    onChange={event => this.setState({email: event.target.value})}
                     className="form-group"
+                    required
                   />
                   <MDBInput
                     label="Nhập mật khẩu"
@@ -59,6 +83,7 @@ class Login extends Component {
                     containerClass="mb-0"
                     name="password"
                     onChange={event => this.setState({password: event.target.value})}
+                    required
                   />
                   <p className="font-small blue-text d-flex justify-content-end pb-3">
                     Quên
@@ -88,7 +113,7 @@ class Login extends Component {
                     >
                       <MDBIcon
                         fab
-                        icon="fa-mobile-alt fa-2x"
+                        fas icon="fas fa-mobile-alt fa-2x"
                         className="blue-text text-center"
                       />
                     </MDBBtn>

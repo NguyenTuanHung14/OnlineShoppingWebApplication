@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-
+import axios from "axios";
+import "./Login.css";
+import { Redirect } from "react-router";
 import {
   MDBContainer,
   MDBRow,
@@ -14,29 +16,38 @@ import {
   MDBFormInline,
   MDBLink,
 } from "mdbreact";
-import "./Login.css";
+
+
 
 class Register extends Component {
   state = {
-      fullName:null,
-      username: null,
-      password: null
+      fullname:null,
+      username:null,
+      email: null,
+      password: null,
+      state: false
   }
-  error
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.fullName)
-    console.log(this.state.username)
-    console.log(this.state.password)
     if(this.state.password!=this.state.confirmPassword){
       alert("Mật khẩu không khớp!");
     }
-
+    else{
+      axios.post('register',this.state)
+            .then(res => {
+              localStorage.setItem('state',res.data.state)
+            })
+            .catch(err => {
+              alert("Email đã được đăng ký!")
+            })
+    }
   };
   render() {
+    const state =  localStorage.getItem('state')? <Redirect to="/dangnhap" />:false;
     return (
       <MDBContainer>
         <MDBRow>
+          {state}
           <MDBCol className="d-flex justify-content-center py-4" >
             <MDBFormInline onSubmit={this.handleSubmit} >
               <MDBCard  className="m-0">
@@ -54,8 +65,9 @@ class Register extends Component {
                     error="wrong"
                     success="right"
                     name="fullName"
-                    onChange={event => this.setState({fullName: event.target.value})}
+                    onChange={event => this.setState({fullname: event.target.value})}
                     className="form-group"
+                    required
                   />
                   <MDBInput
                     label="Nhập email"
@@ -65,8 +77,9 @@ class Register extends Component {
                     error="wrong"
                     success="right"
                     name="username"
-                    onChange={event => this.setState({username: event.target.value})}
+                    onChange={event => this.setState({email: event.target.value})}
                     className="form-group"
+                    required
                   />
                   <MDBInput
                     label="Nhập mật khẩu"
@@ -76,7 +89,7 @@ class Register extends Component {
                     containerClass="mb-0"
                     name="password"
                     onChange={event => this.setState({password: event.target.value})}
-                   
+                    required
                   />
                    <MDBInput
                     label="Nhập lại mật khẩu"
@@ -86,7 +99,7 @@ class Register extends Component {
                     containerClass="mt-0"
                     name="confirmPassword"
                     onChange={event => this.setState({confirmPassword: event.target.value})}
-                   
+                    required
                   />
                  
                   <div className="text-center mb-3">

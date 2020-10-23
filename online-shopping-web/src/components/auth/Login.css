@@ -1,13 +1,21 @@
 .btn-radius {
-  border-radius: 80px!important;
+  border-radius: 80px !important;
 }
-.form-control{
-  width: 18rem!important;
-  padding-bottom: 0.5rem!important;
+.form-control {
+  width: 18rem !important;
+  padding-bottom: 0.5rem !important;
 }
-.form-group{
-  margin-bottom: 0.5rem!important;
+.form-group {
+  margin-bottom: 0.5rem !important;
 }
-.btn-gradient-registry{
-  background: linear-gradient(#dba999, #b32c2c) !important;
+.btn-gradient-registry {
+  background: linear-gradient(
+    90deg,
+    rgba(200, 201, 204, 1) 0%,
+    rgba(214, 181, 14, 0.5553571770505077) 0%,
+    rgba(0, 212, 255, 1) 0%,
+    rgba(204, 213, 217, 1) 0%,
+    rgba(236, 174, 187, 1) 0%,
+    rgba(244, 7, 7, 1) 71%
+  );
 }
