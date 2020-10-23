@@ -9,10 +9,15 @@ import {
   CategoriesEdit,
 } from './components/categories';
 import { restClient } from './dataProvider';
-
+import authClient from './dataProvider/authClient';
 function App(props) {
   return (
-    <Admin title='Trang quản lý' restClient={restClient} dashboard={Dashboard}>
+    <Admin
+      authClient={authClient}
+      title='Trang quản lý'
+      restClient={restClient}
+      dashboard={Dashboard}
+    >
       <Resource
         name='products'
         list={ProductList}
