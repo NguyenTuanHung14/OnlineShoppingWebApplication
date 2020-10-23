@@ -15,7 +15,8 @@ const productSchema = new mongoose.Schema(
       type: String,
     },
     status: {
-      type: Boolean,
+      type: String,
+      default: 'Còn hàng'
     },
     size: [String],
     images: {

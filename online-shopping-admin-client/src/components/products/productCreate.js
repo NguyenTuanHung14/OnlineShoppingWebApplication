@@ -15,8 +15,8 @@ import {
 import RichTextInput from 'aor-rich-text-input';
 
 const choices = [
-  { _id: 1, value: 'Còn hàng' },
-  { _id: 1, value: 'Tạm hết hàng' },
+  {  value: 'Còn hàng' },
+  { value: 'Tạm hết hàng' },
 ];
 
 export const ProductCreate = ({ ...props }) => {
@@ -77,13 +77,7 @@ export const ProductCreate = ({ ...props }) => {
           >
             <SelectInput optionText='name' />
           </ReferenceInput>
-          <ImageInput
-            source='images'
-            label='Vui lòng chọn hình'
-            accept='image/*'
-          >
-            <ImageField source='src' title='title' />
-          </ImageInput>
+        
         </FormTab>
         <FormTab label='Mô tả'>
           <RichTextInput
